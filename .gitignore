@@ -1,0 +1,4 @@
+research/briefs/*.db
+research/briefs/*.json
+discover-*.json
+.env
