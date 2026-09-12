@@ -1,4 +1,14 @@
+# last30days state — config dir, caches, doctor cache, last-report.json
+.last30days/
+
+# Machine-local skill config (may hold machine paths; never commit keys)
+.claude/last30days.env
+.claude/settings.local.json
+
+# Briefs: keep the .md briefs, drop the databases and handoff files
 research/briefs/*.db
+research/briefs/*.db-wal
+research/briefs/*.db-shm
 research/briefs/*.json
 discover-*.json
 .env
