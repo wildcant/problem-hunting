@@ -20,5 +20,85 @@
         ]
       }
     ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "denyWrite": [
+        "./.claude/settings.json",
+        "./.claude/settings.local.json"
+      ],
+      "denyRead": [
+        "~/.ssh",
+        "~/.aws",
+        "~/.gnupg",
+        "~/.config/gh",
+        "~/.netrc",
+        "~/.claude/settings.json",
+        "~/Library/Keychains",
+        "~/Library/Application Support/BraveSoftware",
+        "~/Library/Application Support/Firefox",
+        "~/.mozilla/firefox",
+        "~/Library/Safari",
+        "~/Library/Cookies",
+        "~/Library/Containers/com.apple.Safari"
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "reddit.com",
+        "*.reddit.com",
+        "arctic-shift.photon-reddit.com",
+        "news.ycombinator.com",
+        "hn.algolia.com",
+        "polymarket.com",
+        "*.polymarket.com",
+        "youtube.com",
+        "*.youtube.com",
+        "*.googlevideo.com",
+        "github.com",
+        "api.github.com",
+        "x.com",
+        "api.x.com",
+        "*.twimg.com",
+        "search.parallel.ai",
+        "pypi.org",
+        "files.pythonhosted.org",
+        "registry.npmjs.org"
+      ]
+    }
+  },
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(sudo*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(chmod 777*)",
+      "Bash(security find-generic-password*)",
+      "Bash(security dump-keychain*)",
+      "Bash(launchctl*)",
+      "Bash(crontab*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.netrc)",
+      "Read(~/.claude/settings.json)",
+      "Read(~/Library/Keychains/**)",
+      "Read(~/Library/Application Support/BraveSoftware/**)",
+      "Read(~/Library/Application Support/Firefox/**)",
+      "Read(~/.mozilla/firefox/**)",
+      "Read(~/Library/Safari/**)",
+      "Read(~/Library/Cookies/**)",
+      "Read(~/Library/Containers/com.apple.Safari/**)",
+      "Edit(./.claude/settings.json)",
+      "Edit(./.claude/settings.local.json)"
+    ],
+    "ask": [
+      "Bash(git push*)"
+    ]
   }
 }
