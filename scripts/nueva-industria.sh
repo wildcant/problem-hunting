@@ -38,11 +38,20 @@ done
 
 # Registrar en el índice, justo antes del marcador de fin de tabla.
 if [ -f "$INDICE" ] && grep -q '<!-- fin-tabla -->' "$INDICE"; then
-  FILA="| [$NOMBRE](industrias/$SLUG/) | ⬜ sin empezar | — | — | correr \`/mercado $SLUG\` |"
+  FILA="| [$NOMBRE](industrias/$SLUG/) | ⬜ sin empezar | — | — | — | correr \`/mercado $SLUG\` |"
   python3 - "$INDICE" "$FILA" <<'PY'
-import sys
+import sys, re
 p, fila = sys.argv[1], sys.argv[2]
 s = open(p).read()
+
+# El ancho de la fila está hardcodeado acá arriba. Si alguien le agrega una
+# columna a INDICE.md y se olvida de este script, la tabla queda desalineada
+# sin que nada avise. Comprobamos contra el encabezado real.
+enc = next((l for l in s.splitlines() if l.startswith('| Industria')), None)
+if enc and enc.count('|') != fila.count('|'):
+    sys.exit(f"INDICE.md tiene {enc.count('|')-1} columnas y la fila trae "
+             f"{fila.count('|')-1}. Actualizá FILA en scripts/nueva-industria.sh.")
+
 open(p, 'w').write(s.replace('<!-- fin-tabla -->', fila + '\n<!-- fin-tabla -->'))
 PY
   echo "  registrada en research/INDICE.md"

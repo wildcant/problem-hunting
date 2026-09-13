@@ -15,11 +15,13 @@ Estados posibles: ⬜ sin empezar · 🔍 en investigación · ✅ tesis viva ·
 
 | | |
 | --- | --- |
-| Fila del barrido | Σ — /8 · [`barrido-industrias.md`](../../barrido-industrias.md) |
+| Fila del barrido | Σ — /10 · [`barrido-industrias.md`](../../barrido-industrias.md) |
 | **Test del auxiliar** | ¿puede un auxiliar de salario mínimo hacerlo? — · si no puede, cuál de los cinco imposibles: — |
 | **Vía de pago** (de las siete) | — |
 | **Mecanismo(s) de valor** (de los diez) | — |
 | Intermediario que agrega el dolor | — |
+| **Eje D · distribución** | — /2 · ¿existe padrón público? ¿se puede **descargar en bloque**, o es consulta uno por uno? |
+| **Problemas en el catálogo** | — candidatos · — calificados |
 | Ancla de precio | — · tipo: salario del rol manual / tarifa del profesional escaso / lo que ya se paga hoy |
 | Pico estacional | — |
 | Puntaje `/veredicto` | — /10 |

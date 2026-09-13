@@ -1,8 +1,8 @@
 # Contadores y firmas contables
 
 **Estado:** 🔍 en investigación
-**Última actualización:** 2026-09-12
-**Veredicto:** — (falta `/mercado` y cerrar el costo)
+**Última actualización:** 2026-09-13
+**Veredicto:** — (catálogo poblado; falta `/mercado` y `/oferta`)
 
 Estados posibles: ⬜ sin empezar · 🔍 en investigación · ✅ tesis viva · ❌ descartado
 
@@ -24,10 +24,12 @@ sector.
 | --- | --- |
 | Fila del barrido | sin fila — ver arriba |
 | **Test del auxiliar** | **sí puede** — presentar exógena es digitación y paciencia. Por eso el caso depende enteramente de la vía de pago |
-| **Vía de pago** (de las siete) | **3 · penalidad regulada** — art. 651 E.T., **monto sin verificar**. Candidata secundaria: **1 · ya pagan** (licencia de Siigo/Helisa/World Office) — sin medir |
-| **Mecanismo(s) de valor** (de los diez) | **1 · generar y radicar.** El problema grande detrás está sin explorar |
+| **Vía de pago** (de las siete) | **3 · penalidad regulada** — art. 651 E.T. **cerrada**: 0,7% por error, 0,5% por extemporaneidad, tope 7.500 UVT ≈ $392,8 M, mínima 10 UVT = $523.740 (UVT 2026 = $52.374), reducible al 10% por subsanación voluntaria |
+| **Mecanismo(s) de valor** (de los diez) | **1 · generar y radicar** en las 11 filas. Los mecanismos 2, 7 y 10 siguen sin mirar |
 | Intermediario que agrega el dolor | el contador mismo — es el intermediario |
-| Ancla de precio | — falta `/mercado`. Tipo: costo empleador del auxiliar contable (vía 3) |
+| **Eje D · distribución** | **sin cerrar.** La Junta Central de Contadores publica consulta individual de inscritos, pero **no está verificado** que se pueda descargar el padrón completo. Primer trabajo de `/mercado` |
+| **Problemas en el catálogo** | **11** — 10 candidatos · 1 calificado (`D3`) |
+| Ancla de precio | — falta `/mercado`. Tipo: costo empleador del auxiliar contable, con techo en la sanción del 651 |
 | Pico estacional | exógena (abr–may), renta PN (ago–oct), cierre fiscal (ene–mar) |
 | Puntaje `/veredicto` | — /10 |
 
@@ -37,7 +39,7 @@ diez mecanismos, en `CLAUDE.md` → mecanismos de valor.
 ## Etapas
 
 - [ ] **1 · Mercado** — [`1-mercado.md`](1-mercado.md) · `/mercado contadores`
-- [x] **2 · Dolor** — [`2-dolor.md`](2-dolor.md) · *parcial: 1 hallazgo con recurrencia, sin costo*
+- [x] **2 · Dolor** — [`2-dolor.md`](2-dolor.md) · *catálogo de 11 problemas, 1 calificado; solo mecanismo 1*
 - [ ] **3 · Oferta** — [`3-oferta.md`](3-oferta.md) · `/oferta contadores`
 - [ ] **4 · Tesis** — [`4-tesis.md`](4-tesis.md) · `/veredicto contadores`
 
@@ -45,17 +47,23 @@ diez mecanismos, en `CLAUDE.md` → mecanismos de valor.
 
 Tres cosas, en este orden:
 
-1. **Cerrar el costo del hallazgo de exógena.** Hay recurrencia sólida sobre el
-   "consecutivo del envío", pero nadie nombró el monto de la sanción — solo el
-   miedo. Una búsqueda web del art. 651 E.T. (sanción por información exógena
-   errónea o extemporánea) lo convierte en fila que califica, con vía 3 nombrada.
-2. **Correr `/mercado contadores`** para el ancla de precio, que es lo que
-   alimenta la compuerta A de `/veredicto`.
-3. **Buscar el problema grande detrás del trámite.** Todo lo encontrado hasta hoy
-   es mecanismo 1, donde el auxiliar sí compite. Lo que no se miró: cobranza al
-   cliente que no paga (mec. 7), coordinación con el cliente que manda las
+1. **Cerrar el eje D**: bajar el padrón de la Junta Central de Contadores. Si se
+   puede extraer en bloque, contadores es D=2 y la distribución es outbound puro;
+   si solo se consulta uno por uno, es D=1 y hay que construir la lista. Decide
+   la estrategia de venta entera y cuesta una tarde.
+2. **Correr `/mercado contadores`** para el ancla de precio — cuántos contadores
+   hay, cuánto cobran, y contra qué se cotiza el software. Alimenta la compuerta
+   A de `/veredicto`.
+3. **Buscar el problema grande detrás del trámite.** Las 11 filas del catálogo
+   son **todas mecanismo 1**, donde el auxiliar sí compite. Sin mirar: cobranza
+   al cliente que no paga (mec. 7), coordinación con el cliente que manda las
    facturas por WhatsApp (mec. 2), y rotación del auxiliar (mec. 10). Son
    mecanismos sin tutorial: la lane es Facebook y ofertas de empleo, no YouTube.
+
+**Lo que ya no bloquea:** el costo. El art. 651 quedó cerrado con cifra y `D3`
+subió a `calificado`. El hallazgo más fuerte no fue el consecutivo sino la
+**corrección de un envío ya radicado** — seis contadores distintos preguntando
+cómo liquidar la sanción, que es gente autocorrigiéndose para pagar el 10%.
 
 ## Contenido del directorio
 

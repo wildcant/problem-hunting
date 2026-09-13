@@ -11,8 +11,9 @@ escriben en el mismo lugar, así que nada se mezcla entre industrias.
       ↓                    → research/barrido-industrias.md   [etapa 0, sin comando]
   /mercado <slug>     ¿puede el auxiliar? ¿quién agrega el dolor? ¿qué vía paga?
       ↓                    → research/industrias/<slug>/1-mercado.md
-  /dolor <slug>       ¿duele, a quién, cuánto cuesta, por qué vía?
-      ↓                    → research/industrias/<slug>/2-dolor.md   [evidencia]
+  /dolor <slug>       ¿qué problemas hay? ¿cuáles duelen, cuánto, por qué vía?
+      ↓                    → research/industrias/<slug>/2-dolor.md   [el catálogo]
+                             candidato: ≥2 fuentes · calificado: + costo con vía
   /oferta <slug>      ¿quién lo resuelve ya, a qué precio, qué no cubre?
       ↓                    → research/industrias/<slug>/3-oferta.md
   /veredicto <slug>   ¿vale la pena construirlo?
@@ -50,11 +51,16 @@ mercado para transporte de carga"* y va a leer el archivo y seguirlo.
 
 - Ninguna etapa inventa una cifra. Cada número lleva URL, y si viene del
   marketing de un proveedor se marca como tal en la misma línea.
-- **Dos cosas se nombran en cada etapa y se arrastran hasta el veredicto:** cuál
-  de las **siete vías** a la disposición a pagar aplica, y cuál de los **diez
-  mecanismos** de valor está en juego. Las dos listas están en `CLAUDE.md`. Sin
-  vía, una fila de costo no está cerrada; sin mecanismo, no se sabe en qué lane
-  buscar la evidencia.
+- **Tres cosas se nombran en cada etapa y se arrastran hasta el veredicto:** cuál
+  de las **siete vías** a la disposición a pagar aplica, cuál de los **diez
+  mecanismos** de valor está en juego, y el **eje D** — ¿podés construir hoy la
+  lista de compradores? Las tres están en `CLAUDE.md`. Sin vía, una fila de costo
+  no está cerrada; sin mecanismo, no se sabe en qué lane buscar la evidencia; sin
+  D, no se sabe si hay que montar marketing antes de vender la primera licencia.
+- **Las fuentes se citan por ID, no por URL.** Cada ítem de un brief lleva un ID
+  estable (`YT-…`, `L3D-…`). `scripts/verificar-evidencia.sh` comprueba que toda
+  cita exista, y el hook de pre-commit lo corre solo. Nunca reconstruyas una URL
+  de memoria.
 - Los campos de cada archivo están en `research/_plantilla-industria/`. Si cambiás
   un campo acá, cambialo también allá — el bloque de salida de cada playbook y su
   plantilla tienen que decir lo mismo.

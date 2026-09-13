@@ -22,8 +22,9 @@ el cliente no me paga los honorarios       ⬜   ← mec. 7, sin probar
 ## Strings de error
 ```
 el prevalidador no me deja                 ⬜
-NullPointerException prevalidador DIAN     ⬜   ← visto en comentarios, sin buscar aún
-me sale en tramite no me sale recibo       ⬜   ← visto en comentarios, sin buscar aún
+NullPointerException prevalidador DIAN     ⬜   ← ya no aparece en el crudo de 2026-09-13
+me sale en tramite no me sale recibo       ⬜   ← es D1, la fila más recurrente (10 fuentes)
+503007 error validacion archivo            ⬜   ← 1 sola fuente; con otra, entra al catálogo
 rechazo factura electronica DIAN           ⬜
 error validacion factura electronica       ⬜
 nomina electronica no me valida            ⬜
@@ -31,9 +32,11 @@ nomina electronica no me valida            ⬜
 
 ## Nombres de trámite o fecha límite
 ```
-como presentar informacion exogena DIAN paso a paso   ✅  48 comentarios con dolor / 4 videos
-corregir informacion exogena DIAN                     ⬜
-consecutivo envio exogena                             ⬜  ← el hallazgo abierto
+como presentar informacion exogena DIAN paso a paso   ✅  56 ítems / 5 videos → 11 problemas
+corregir informacion exogena DIAN                     ✅  vía --mas-videos a03EPssDN28: destapó D2 y D3
+consecutivo envio exogena                             ⬜  ← D4, 4 fuentes, costo sin cerrar
+liquidar sancion 651 exogena                          ⬜  ← D3 ya calificó; buscar más recurrencia
+prevalidador exogena 2026 cuando sale                 ⬜  ← D7, el trabajo que se rehace
 formato 1001 informacion exogena                      ⬜
 medios magneticos DIAN                                ⬜
 documento soporte DIAN como hacerlo                   ⬜

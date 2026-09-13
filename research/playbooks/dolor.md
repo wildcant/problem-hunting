@@ -63,12 +63,17 @@ resultado. Un descarte medido va al banco compartido `research/consultas.md`.
 Es el yacimiento para trámites y documentos.
 
 ```bash
-./scripts/yt-comentarios.sh "<consulta del trámite>" 8 200
+./scripts/yt-comentarios.sh "<consulta del trámite>" 8 200 --industria <slug>
 ```
 
-Corrélo para 2 o 3 consultas distintas del mismo trámite. El script escribe en
-`research/briefs/` (scratch del motor); movelo después a
-`research/industrias/<slug>/briefs/`.
+Corrélo para 2 o 3 consultas distintas del mismo trámite. Con `--industria`
+escribe directo en `research/industrias/<slug>/briefs/` — no lo muevas a mano.
+Si un video puntual no sale en la búsqueda pero la evidencia ya lo señaló,
+agregalo con `--mas-videos ID1,ID2`.
+
+**Cada ítem sale con un ID estable** (`YT-<video>-<hash>`) derivado del
+`comment_id` nativo, y con un permalink `watch?v=…&lc=…` que abre YouTube **en
+ese comentario**. Citá el ID en `2-dolor.md`; no pegues URLs a mano.
 
 Leé la salida con tres lentes separadas:
 
@@ -110,6 +115,16 @@ ser la mejor fuente que vas a tener sobre el workaround actual.
 
 En la nube, agregá `--web-backend=parallel-mcp`.
 
+Apenas termine, **convertilo en evidencia citable** — el JSON del motor se
+sobrescribe en la corrida siguiente:
+
+```bash
+scripts/l30d-brief.sh <slug> "<etiqueta del run>"
+```
+
+Si la salida dice `CORRIDA DEGRADADA`, algún lane vino limitado o falló: esa
+corrida **no puede marcar una consulta como ❌**, solo `⚠️ probado, degradado`.
+
 Sin `--discover`. Sin `--drill`. Sin topics de marca sueltos.
 
 ## Paso 6 — grupos de Facebook (manual)
@@ -135,7 +150,11 @@ Esto **valida el patrón, no el mercado**. Un dolor que ya tiene diez soluciones
 en EE.UU. y ninguna en Colombia puede ser una oportunidad de localización — o
 una señal de que el mercado local no paga. No confundas las dos.
 
-## Paso 8 — filtrar y escribir
+## Paso 8 — agrupar y escribir el catálogo
+
+**Esta etapa produce un catálogo, no un veredicto.** La salida es el listado de
+problemas de la industria — la materia prima del sitio. Decidir cuál construir
+es trabajo de `/veredicto`.
 
 Aplicá las reglas de evidencia de `CLAUDE.md`. Descartá explícitamente:
 
@@ -143,32 +162,68 @@ Aplicá las reglas de evidencia de `CLAUDE.md`. Descartá explícitamente:
 - tutoriales de proveedor tratados como si fueran queja
 - cifras de case studies de proveedor sin marcar
 
-Escribí **todo** en `research/industrias/<slug>/2-dolor.md`. Cada fila que
-califica lleva:
+### Agrupá primero, escribí después
+
+El error caro es escribir fila por comentario. **Agrupá los ítems del brief por
+*qué se rompe*** y contá cuántas personas distintas describen cada cosa. Ese
+conteo es la recurrencia. Un solo brief de 40 ítems suele contener 8 a 12
+problemas distintos; si sacás 2, agrupaste de más.
+
+Cuidado con dos sesgos que ya nos pasaron:
+
+- **Confundir "llamativo" con "recurrente".** Un stacktrace de Java se ve muy
+  concreto y puede tener un solo caso, mientras "¿estoy obligado a presentar
+  esto?" se ve genérico y tener cinco. Contá, no impresiones.
+- **Meter dos problemas en un grupo** porque suenan parecido. "Puse mal el
+  consecutivo" y "quiero reemplazar un envío ya radicado" son distintos.
+
+### El estado de cada fila
+
+| Estado | Cuándo |
+| --- | --- |
+| `candidato` | **≥2 IDs de evidencia independientes**. Entra al catálogo y al sitio |
+| `calificado` | además: costo con **una de las siete vías** nombrada |
+| `descartado` | con la razón escrita |
+
+Escribí **todo** en `research/industrias/<slug>/2-dolor.md`. Cada fila lleva:
 
 - un **ID** (`D1`, `D2`, …) — es lo que va a citar `4-tesis.md`
+- el **problema en la voz del que sufre**, no en jerga del sector
 - el **mecanismo**, de los diez
-- la celda de costo con **cuál de las siete vías** aplica. Una cifra sin vía
-  nombrada no cierra la fila: va a "Registrado pero no califica", diciendo qué
-  falta exactamente.
+- **B2B o B2C** y el **eje D** (¿podés listar a los compradores hoy?)
+- una **solución en software de una línea** — es lo único interpretativo que se
+  permite acá, y va en su propia columna
+- los **IDs de evidencia** (`YT-…`, `L3D-…`), nunca URLs pegadas a mano
+- el **costo con su vía**, si ya cerró
 
-Mové los crudos a `research/industrias/<slug>/briefs/`. Actualizá el `README.md`
-de la industria (estado, siguiente paso, "De un vistazo") y su fila en
-`research/INDICE.md`.
+Actualizá el `README.md` de la industria (estado, siguiente paso, "De un
+vistazo", **conteo de candidatos**) y su fila en `research/INDICE.md`.
 
-**Verificá cada URL con grep contra el brief crudo antes del commit.** Nunca
-reconstruyas una URL de memoria.
+### Verificá antes del commit
+
+```bash
+scripts/verificar-evidencia.sh <slug>
+```
+
+Comprueba que todo ID citado exista en un brief, que ninguna URL de plataforma
+minada se haya inventado, y que cada fila cite ≥2 IDs. El hook de pre-commit lo
+corre solo si activaste `git config core.hooksPath scripts/hooks`.
 
 ## Criterio de parada
 
 Parás cuando pase una de dos cosas:
 
-- tenés 2 o 3 problemas con recurrencia y costo con vía nombrada, listos para
-  `/oferta`; o
+- el catálogo tiene **todos los grupos del brief representados** y al menos 2 o
+  3 subieron a `calificado` con vía nombrada, listos para `/oferta`; o
 - tres consultas distintas del banco no produjeron nada **en la lane correcta
   para el mecanismo**. En ese caso el resultado **es** "esta industria no tiene
   dolor detectable en las fuentes disponibles" — escribilo y pasá a la siguiente.
   Es un resultado válido y ahorra semanas.
 
-Un pase vacío que solo probó YouTube sobre un mecanismo 2–5 no es un criterio de
-parada: es la lane equivocada.
+Dos cosas que **no** son criterio de parada:
+
+- Un pase vacío que solo probó YouTube sobre un mecanismo 2–5: es la lane
+  equivocada, no una industria sin dolor.
+- Una corrida del motor marcada `⚠ CORRIDA DEGRADADA`. Un lane con rate limit
+  devuelve pocos ítems, igual que una industria sin dolor. No se distinguen, así
+  que no concluye nada — repetila.

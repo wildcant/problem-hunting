@@ -5,9 +5,13 @@ directorio autocontenido en `research/industrias/`.
 
 Estados: ⬜ sin empezar · 🔍 en investigación · ✅ tesis viva · ❌ descartado
 
-| Industria | Estado | Etapa | Puntaje | Siguiente paso |
-| --- | --- | --- | --- | --- |
-| [Contadores y firmas contables](industrias/contadores/) | 🔍 en investigación | 2 · dolor (parcial) | — | cerrar la sanción del art. 651 E.T. y correr `/mercado contadores` |
+**Problemas** = filas del catálogo de `2-dolor.md`. `candidato` tiene ≥2 fuentes
+independientes; `calificado` además tiene el costo con su vía nombrada. Es el
+número que alimenta la tabla índice del sitio.
+
+| Industria | Estado | Etapa | Problemas | Puntaje | Siguiente paso |
+| --- | --- | --- | :-: | :-: | --- |
+| [Contadores y firmas contables](industrias/contadores/) | 🔍 en investigación | 2 · dolor | **11** (10 cand. · 1 calif.) | — | `/mercado contadores`: cerrar el eje D y el ancla de precio |
 <!-- fin-tabla -->
 
 ## Agregar una industria

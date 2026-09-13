@@ -5,6 +5,20 @@ Este repo es un registro de investigación, no un repo de producto. Su objetivo:
 dispuesto a pagar una solución**, y decidir cuáles justifican construir algo.
 Es el aparato de decisión que va **antes** de escribir producto.
 
+**La salida final es un catálogo publicable:** para cada industria, el listado
+de problemas resolubles con software **donde el marketing no sea mandatorio**,
+con la evidencia que sostiene cada uno. Se publica como un sitio multipágina —
+una tabla índice con el número de problemas por industria, y una página por
+industria con cada problema, su posible solución en software y los links que lo
+respaldan. Prioriza B2B, pero cataloga toda la gama.
+
+De ahí salen **dos niveles de evidencia, no uno**. Que un problema entre al
+catálogo (`candidato`) y que merezca construirse (`calificado`) son preguntas
+distintas con bares distintos; ver [Reglas de evidencia](#reglas-de-evidencia).
+Confundirlas es lo que deja el catálogo vacío: el primer pase sobre contadores
+produjo **cero** filas calificadas sobre un crudo que contenía ~10 problemas
+distintos con recurrencia.
+
 Cubre el ciclo completo de descubrimiento: pain points por industria, tamaño y
 estructura del nicho, quién agrega el dolor, oferta actual y precios, y el
 veredicto de si hay hueco. Contaduría ya tiene directorio con investigación —
@@ -129,6 +143,38 @@ identificamos:
 Si no podés nombrar al intermediario de una industria, todavía no terminaste
 `/mercado`.
 
+#### El eje **D** — distribución sin marketing
+
+"El intermediario es el canal de distribución" es la versión en prosa. **D es
+la versión medible**, y es el quinto eje del barrido junto a M/I/$/H.
+
+*B2B* y *no necesita marketing* **no son lo mismo**. Droguerías independientes
+es B2B puro y son ~20.000 negocios anónimos y dispersos: para llegarles hacen
+falta ads. Agenciamiento aduanero es B2B y son ~300 con nombre y NIT. La
+pregunta real no es el segmento, es **¿podés construir hoy la lista de
+compradores?**
+
+| D | Criterio |
+| :-: | --- |
+| **0** | comprador anónimo y disperso; solo se llega con ads, SEO o contenido (B2C, micronegocio) |
+| **1** | hay gremio o directorio, pero son miles y compran de a uno |
+| **2** | la lista completa existe hoy en un **registro público**, y son cientos, no miles |
+
+Acá Colombia juega a favor de una forma que todavía no explotamos: **el
+regulador publica la lista de compradores.** REPS lista las IPS, el RNDC las
+transportadoras habilitadas, Supervigilancia las empresas de vigilancia,
+Confecámaras el RNT. Ese registro es el canal, y es gratis.
+
+**Matiz obligatorio:** un registro que permite *verificar uno por uno* no es
+una lista descargable. La Junta Central de Contadores expone consulta
+individual de contadores inscritos y estadísticas agregadas, pero que se pueda
+extraer el padrón completo **está sin verificar** — así que contadores tiene
+**D sin cerrar**, no D=2. Si no comprobaste la extracción en bloque, el eje
+queda abierto como pregunta de `/mercado`.
+
+B2C no se descarta —el catálogo cubre toda la gama— simplemente cae al fondo
+del orden con D=0.
+
 ### 3. Reddit no es la fuente para Colombia. YouTube y Facebook sí
 
 Medido el 2026-09-12 vía arctic-shift:
@@ -179,13 +225,20 @@ documento.**
 | 5 | **Despachar recursos físicos** | turnos de guardas, cuadrillas técnicas, ambulancias, rutas escolares | no |
 | 6 | **Multiplicar a un profesional escaso** | copiloto del radiólogo, del geólogo, del director técnico | no |
 | 7 | **Que la plata entre** | cobranza, recaudo, conciliación de pagos, cartera | no |
-| 8 | **Traer demanda** | el software que consigue clientes — lo único que un micronegocio sí paga | no |
+| 8 | **Traer demanda** ⚠️ | el software que consigue clientes — lo único que un micronegocio sí paga | no |
 | 9 | **Probar ante un tercero** | trazabilidad de cadena de frío, de origen, de custodia | parcial |
 | 10 | **Retener el proceso pese a la rotación** | memoria institucional donde la gente rota cada 8 meses | no |
 
 **Los mecanismos 2 a 5 son donde el auxiliar mal pagado no compite a ningún
 precio.** Son la mejor posición bajo la restricción 1, y son exactamente los que
 no aparecen buscando tutoriales.
+
+**⚠️ El mecanismo 8 es el antipatrón de este repo.** "Traer demanda" es el
+software que *es* marketing: se vende con marketing y su valor **es** conseguir
+clientes, o sea que hereda el problema de distribución en lugar de esquivarlo.
+Se cataloga como todo lo demás —cubrimos toda la gama— pero rankea al fondo y
+casi siempre viene con D=0. Si el catálogo de una industria se llena de
+mecanismo 8, la lane de investigación está mal elegida.
 
 En cada industria, el trámite que encontrás suele ser la punta visible de un
 problema mayor: detrás del RIPS está la conciliación IPS↔EPS; detrás del
@@ -248,6 +301,13 @@ El muro vive **dentro** de cada industria, no entre archivos globales:
 Una tesis sin filas de evidencia que la respalden es una corazonada. Marcala
 como tal.
 
+**No confundas el muro con los dos niveles de evidencia.** Son ejes distintos y
+perpendiculares. El muro separa *evidencia* de *hipótesis* (`2-dolor.md` contra
+`4-tesis.md`). Los niveles separan *vale la pena investigarlo* de *vale la pena
+construirlo*, y viven **los dos adentro de `2-dolor.md`**: una fila `candidato`
+es tan evidencia como una `calificado`, solo que todavía no cerró el costo.
+Nada de eso autoriza a meter una idea de producto en `2-dolor.md`.
+
 `barrido-industrias.md` es, a nivel global, un archivo de **hipótesis** — el
 equivalente de un `4-tesis.md` para todo el mercado. Ninguna de sus filas entra
 a un `2-dolor.md` sin correr `/dolor`.
@@ -263,9 +323,10 @@ consume la salida de la anterior y escribe en el directorio de la industria.
 | --- | --- | --- | --- |
 | 0 | *(archivo, sin comando)* | ¿Qué industria vale la pena, y por qué esa? | `research/barrido-industrias.md` |
 | 1 | `/mercado <slug>` | ¿Qué sector, y quién agrega el dolor? | `industrias/<slug>/1-mercado.md` |
-| 2 | `/dolor <slug>` | ¿Duele, a quién, y cuál es la vía de pago? | `industrias/<slug>/2-dolor.md` |
+| 2 | `/dolor <slug>` | ¿Qué problemas hay, cuáles duelen, y cuál es la vía de pago? | `industrias/<slug>/2-dolor.md` — **el catálogo** |
 | 3 | `/oferta <slug>` | ¿Quién lo resuelve ya, a qué precio, y qué no cubre? | `industrias/<slug>/3-oferta.md` |
 | 4 | `/veredicto <slug>` | ¿Vale la pena construirlo? | `industrias/<slug>/4-tesis.md` |
+| 5 | *(pendiente, sin comando)* | ¿Cómo se publica todo esto? | el sitio multipágina — **todavía no existe** |
 
 **La etapa 0 es de dónde sale el slug.** Elegir industria a dedo, sin pasar por
 el barrido, es cómo se termina investigando lo que es fácil de buscar en vez de
@@ -297,7 +358,24 @@ Van en este orden, sin importar la industria:
 
 ## Reglas de evidencia
 
-Solo entra a la tabla de `2-dolor.md` un problema que muestre **las dos**:
+### Los dos niveles
+
+Un problema entra al catálogo mucho antes de estar listo para construirse. Son
+dos preguntas distintas y **cada una tiene su bar**:
+
+| | `candidato` | `calificado` |
+| --- | --- | --- |
+| Pregunta | ¿vale la pena investigarlo a fondo? | ¿vale la pena construirlo? |
+| Bar | **≥2 IDs de evidencia independientes** | recurrencia + costo + **vía nombrada** |
+| Para qué sirve | **el catálogo y el sitio** | el veredicto de `/veredicto` |
+
+**El nombre importa:** se llaman *niveles de evidencia*, no "compuertas".
+`/veredicto` ya usa "compuerta A / compuerta B" para el test del auxiliar y la
+oferta actual, que son otra cosa y de otra etapa.
+
+Un `candidato` **es evidencia real**, no un borrador: exige que haya gente
+distinta describiendo el mismo problema, con links. Lo que todavía no tiene es
+la cifra de costo. Promoverlo a `calificado` es lo que hace `/veredicto`.
 
 - **Recurrencia** — varios hilos o comentarios independientes describiendo el
   mismo problema. Un solo desahogo viral no es recurrencia. Tres comentarios
@@ -307,17 +385,47 @@ Solo entra a la tabla de `2-dolor.md` un problema que muestre **las dos**:
   aplica.** Una fila de costo que no puede nombrar su vía todavía no está
   cerrada.
 
-Además:
+### La regla que evita que el catálogo se degrade
 
+Bajar el bar a "tiene links" tienta a llenar el catálogo de plausibles. La
+defensa es una sola y no es negociable:
+
+> **El link tiene que ser de alguien SUFRIENDO el problema, no de un proveedor
+> explicándolo.**
+
+De ahí se derivan las cuatro de siempre:
+
+- **Un tutorial de vendedor no es dolor** — pero sus vistas sí son señal de
+  volumen, y sus comentarios sí son dolor. Son tres cosas distintas.
 - **Marcá los case studies de vendedor.** Una cifra del marketing de un
   proveedor no es queja de un par. Decilo en la celda de costo.
 - **Excluí los posts de validación de otros founders.** "¿Qué tarea manual te
   vuelve loco?" y "¿mi idea sirve?" son otra gente cazando el mismo mercado.
-- **Un tutorial de vendedor no es dolor** — pero sus vistas sí son señal de
-  volumen, y sus comentarios sí son dolor. Distinguí las tres cosas.
-- **Verificá cada URL contra el brief crudo** en `industrias/<slug>/briefs/`
-  antes de hacer commit. Nunca reconstruyas una URL de memoria; sacala con grep.
-- Recurrencia sin cifra de costo va en **"Registrado pero no califica"**.
+- **Anotá B2B o B2C y el eje D** en cada fila. B2C no se descarta, rankea abajo.
+
+### Trazabilidad: ya no es una regla de honor
+
+Cada ítem de un brief lleva un **ID estable** (`YT-…`, `L3D-…`) derivado del ID
+nativo de la plataforma, y las filas del catálogo **citan esos IDs**, no URLs
+pegadas a mano. Verificar es un grep, y lo corre un hook:
+
+```bash
+scripts/verificar-evidencia.sh [industria]   # o automático en pre-commit
+```
+
+Comprueba tres cosas: que todo ID citado exista en un brief, que toda URL de
+una plataforma que minamos aparezca en un brief, y que cada fila del catálogo
+cite ≥2 IDs. Activación, una sola vez:
+
+```bash
+git config core.hooksPath scripts/hooks
+```
+
+**Por qué un hook y no una regla escrita.** Esta sección ya decía "verificá
+cada URL contra el brief crudo antes de hacer commit", y se incumplió igual:
+`contadores/2-dolor.md` citaba un video de 100.320 vistas que no existía en
+ningún brief, con una sola industria abierta. Una regla que depende de que
+alguien se acuerde, no se cumple. **Nunca reconstruyas una URL de memoria.**
 
 ---
 
@@ -410,6 +518,38 @@ todas las verticales probadas.
 **`--drill` es opt-in.** Re-investiga las *fuentes* de un cluster, no los
 comentarios, y en un tema nicho arrastra hilos fuera de tema. Solo cuando se
 pida explícitamente.
+
+### Después de cada run: convertirlo en evidencia citable
+
+```bash
+scripts/l30d-brief.sh <industria> "<etiqueta del run>"
+```
+
+**No es opcional.** El motor deja su salida estructurada en
+`$LAST30DAYS_CONFIG_DIR/last-report.json`, que está en `.gitignore` y se llama
+`last-report` **en singular**: se sobrescribe en la corrida siguiente. Sin este
+paso, la evidencia del motor no queda citable ni verificable — se pierde.
+
+El post-procesador hace tres cosas que el run crudo no hace:
+
+- **Le pone un ID estable a cada ítem** (`L3D-…`), para que `2-dolor.md` lo cite
+  y el hook lo verifique.
+- **Ordena por relevancia y marca lo que cae bajo umbral, sin descartarlo.** El
+  motor ya puntúa cada ítem; el run basura de `SAP Business One en Colombia`
+  traía el ítem de Fireship sobre GPT-6 con `relevance_hint 0.0`. Pero ojo:
+  ese mismo ítem marcaba `engagement_score 100` (4M de vistas), así que
+  **ordenar por engagement promueve la basura**. Y nada se borra en silencio:
+  hay una sola corrida de calibración en el repo y es la mala.
+- **Detecta la corrida degradada.** Ver abajo.
+
+**Una corrida degradada no puede producir un ❌.** El motor devuelve
+`state: "ok"` con el lane a medio andar — se observó `reddit` con
+`"6 sub-requests rate-limited (HTTP 429)"` y `state: ok` al mismo tiempo. Pocos
+ítems por rate limit se ven **idénticos** a pocos ítems porque el dolor no
+existe, y los descartes medidos de `consultas.md` se citan después como hecho
+durable: un falso negativo ahí no se vuelve a revisar nunca. Si algún lane trae
+`lane_failure_state`, el brief sale estampado `⚠ CORRIDA DEGRADADA` y lo máximo
+que podés anotar es `⚠️ probado, degradado — repetir`.
 
 ---
 

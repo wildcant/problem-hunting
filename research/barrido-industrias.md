@@ -18,8 +18,8 @@ partes: el filtro de la lista, y las **siete industrias que la lista no tiene**.
 
 ## El filtro
 
-Cuatro criterios, cada uno 0–2 puntos, derivados de las tres restricciones de
-`CLAUDE.md`. Máximo 8.
+Cinco criterios, cada uno 0–2 puntos, derivados de las tres restricciones de
+`CLAUDE.md`. Máximo 10.
 
 | | Criterio | 0 | 2 |
 | --- | --- | --- | --- |
@@ -27,8 +27,26 @@ Cuatro criterios, cada uno 0–2 puntos, derivados de las tres restricciones de
 | **I** | **Intermediario** nombrable que sufre el dolor N veces | nadie agrega; cada empresa está sola | existe y se puede nombrar hoy |
 | **$** | **Disposición a pagar** — ver las siete vías abajo | el único argumento es "ahorra horas" y no hay presupuesto | ya sale plata por esto todos los meses |
 | **H** | **Hueco**: el incumbente no lo tomó | Siigo/SAP/un global ya está | nicho sin dueño claro |
+| **D** | **Distribución sin marketing**: ¿podés construir hoy la lista de compradores? | comprador anónimo y disperso; solo ads, SEO o contenido | existe un **registro público descargable** |
 
 Bandera extra: **⏱ pico estacional**.
+
+### Por qué D es un eje y no una nota al pie
+
+Es el criterio que decide si hay que montar una máquina de marketing antes de
+vender la primera licencia. **B2B y "no necesita marketing" no son lo mismo**:
+droguerías independientes es B2B puro y son ~20.000 negocios anónimos;
+agenciamiento aduanero es B2B y son ~300 con nombre y NIT.
+
+Acá Colombia juega a favor: **el regulador publica la lista de compradores**.
+REPS, el catastro minero de la ANM, el registro de intermediarios de la SFC,
+las vigiladas de Supervigilancia, el RNT de Confecámaras. Ese padrón es el
+canal de distribución, y es gratis.
+
+**D=2 exige que la lista se pueda extraer en bloque.** Un registro que solo
+permite verificar uno por uno no sirve para prospectar: prueba que el actor
+existe, no te da a quién escribirle. Si no comprobaste la descarga, el eje
+queda abierto, no en 2.
 
 ### Las siete vías a la disposición a pagar
 
@@ -64,7 +82,7 @@ un peso en el problema*—, no "no encontré la multa".
 
 ### Disposición ≠ capacidad
 
-Un sector puede querer pagar y no poder. Las ESP pequeñas (#7) y los acueductos
+Un sector puede querer pagar y no poder. Las ESP pequeñas (#11) y los acueductos
 comunitarios tienen sanción clarísima y caja mínima. Eso baja $ a 1, y no es lo
 mismo que no querer.
 
@@ -206,34 +224,79 @@ Daviplata ocupan la superficie. Ver arquetipo B en
 Ordenados por puntaje. La columna **"por qué pagan"** nombra cuál de las siete
 vías aplica — sin ella la fila no vale nada.
 
-| # | Sector (de la lista) | Traducción colombiana | M | I | $ | H | **Σ** | Por qué pagan (vía) |
-| --- | --- | --- | :-: | :-: | :-: | :-: | :-: | --- |
-| 1 | Healthcare Providers & Services | **IPS pequeñas y consultorios** | 2 | 2 | 2 | 2 | **8** | **plata que no entra** (2): RIPS rechazado ⇒ no se puede radicar; inconsistencia RIPS↔factura ⇒ glosa automática. Además ya pagan facturador tercerizado (1) |
-| 2 | Freight & Logistics Services | **Transporte de carga** | 2 | 2 | 2 | 1 | **7** | **penalidad** (3): sin manifiesto RNDC el camión no rueda. Ya pagan proveedor de RNDC/TMS (1) |
-| 3 | *(transversal)* | **Cumplimiento laboral y LA/FT** | 2 | 2 | 2 | 1 | **7** | **ya pagan** (1): consultor SG-SST y oficial de cumplimiento son línea de gasto vigente. Multas de refuerzo (3) |
-| 4 | Metals & Mining | **Pequeña minería titulada** | 1 | 2 | 2 | 2 | **7** | **insumo escaso** (4): el FBM lo avala un geólogo o ingeniero titulado. Caducidad del título (3) |
-| 5 | Real Estate Operations | **Propiedad horizontal** | 2 | 2 | 2 | 0 | **6** | **es parte del producto que revenden** (6): el portal de residentes es lo que la administradora le muestra al conjunto. Cartera de cuotas (2) |
-| 6 | Insurance | **Corredores y agencias de seguros** | 1 | 2 | 2 | 1 | **6** | **ya pagan** (1) CRM y sistemas de ramos; comisión en riesgo si se cae la renovación (2) |
-| 7 | *(no está en la lista)* | **Agenciamiento aduanero** | 1 | 2 | 2 | 1 | **6** | **penalidad** (3): 100% del FOB por sustracción, 10% por inexactitud. Ya pagan software aduanero (1) |
-| 8 | *(no está en la lista)* | **Vigilancia y seguridad privada** | 1 | 1 | 2 | 2 | **6** | **penalidad** (3): $9.000M a 240 empresas solo por no radicar estados financieros. **Requisito para vender** (5): sin licencia no hay contrato |
-| 9 | School, College & University | **Colegios privados** | 2 | 1 | 2 | 1 | **6** ⚠️ | **ya pagan** (1) plataforma académica; **parte del producto** (6): el boletín y el portal de padres |
-| 10 | Construction & Engineering | **Constructoras medianas** | 2 | 1 | 2 | 1 | **6** | **requisito para vender** (5): sin SG-SST al día no se licita. Ya pagan ERP de obra (1) |
-| 11 | Multiline / Water Utilities | **ESP pequeñas (<2.500 usuarios)** | 1 | 1 | 1 | 2 | **5** | **penalidad** (3) fuerte, pero **capacidad de pago mínima** → $ baja a 1 |
-| 12 | Hotels & Entertainment | **Hoteles y agencias de viajes** | 2 | 1 | 2 | 0 | **5** ⏱ | **parte del producto** (6): motor de reservas. Ya pagan PMS y channel manager (1) |
-| 13 | Food & Drug Retailing / Pharmaceuticals | **Droguerías independientes** | 2 | 1 | 2 | 0 | **5** | **insumo escaso** (4): director técnico 8 horas. Ya pagan software de droguería (1) |
-| 14 | Food & Tobacco | **Procesadores de alimentos** | 2 | 1 | 1 | 1 | **5** | **requisito para vender** (5): registro sanitario INVIMA y auditoría del cliente grande |
+| # | Sector (de la lista) | Traducción colombiana | M | I | $ | H | D | **Σ** | Por qué pagan (vía) |
+| --- | --- | --- | :-: | :-: | :-: | :-: | :-: | :-: | --- |
+| 1 | Healthcare Providers & Services | **IPS pequeñas y consultorios** | 2 | 2 | 2 | 2 | 2 | **10** | **plata que no entra** (2): RIPS rechazado ⇒ no se puede radicar; inconsistencia RIPS↔factura ⇒ glosa automática. Además ya pagan facturador tercerizado (1) |
+| 2 | Freight & Logistics Services | **Transporte de carga** | 2 | 2 | 2 | 1 | 2 | **9** | **penalidad** (3): sin manifiesto RNDC el camión no rueda. Ya pagan proveedor de RNDC/TMS (1) |
+| 3 | Metals & Mining | **Pequeña minería titulada** | 1 | 2 | 2 | 2 | 2 | **9** | **insumo escaso** (4): el FBM lo avala un geólogo o ingeniero titulado. Caducidad del título (3) |
+| 4 | *(transversal)* | **Cumplimiento laboral y LA/FT** | 2 | 2 | 2 | 1 | 1 | **8** | **ya pagan** (1): consultor SG-SST y oficial de cumplimiento son línea de gasto vigente. Multas de refuerzo (3) |
+| 5 | Insurance | **Corredores y agencias de seguros** | 1 | 2 | 2 | 1 | 2 | **8** | **ya pagan** (1) CRM y sistemas de ramos; comisión en riesgo si se cae la renovación (2) |
+| 6 | *(no está en la lista)* | **Agenciamiento aduanero** | 1 | 2 | 2 | 1 | 2 | **8** | **penalidad** (3): 100% del FOB por sustracción, 10% por inexactitud. Ya pagan software aduanero (1) |
+| 7 | *(no está en la lista)* | **Vigilancia y seguridad privada** | 1 | 1 | 2 | 2 | 2 | **8** | **penalidad** (3): $9.000M a 240 empresas solo por no radicar estados financieros. **Requisito para vender** (5): sin licencia no hay contrato |
+| 8 | School, College & University | **Colegios privados** | 2 | 1 | 2 | 1 | 2 | **8** ⚠️ | **ya pagan** (1) plataforma académica; **parte del producto** (6): el boletín y el portal de padres |
+| 9 | Real Estate Operations | **Propiedad horizontal** | 2 | 2 | 2 | 0 | 1 | **7** | **es parte del producto que revenden** (6): el portal de residentes es lo que la administradora le muestra al conjunto. Cartera de cuotas (2) |
+| 10 | Construction & Engineering | **Constructoras medianas** | 2 | 1 | 2 | 1 | 1 | **7** | **requisito para vender** (5): sin SG-SST al día no se licita. Ya pagan ERP de obra (1) |
+| 11 | Multiline / Water Utilities | **ESP pequeñas (<2.500 usuarios)** | 1 | 1 | 1 | 2 | 2 | **7** | **penalidad** (3) fuerte, pero **capacidad de pago mínima** → $ baja a 1 |
+| 12 | Hotels & Entertainment | **Hoteles y agencias de viajes** | 2 | 1 | 2 | 0 | 2 | **7** ⏱ | **parte del producto** (6): motor de reservas. Ya pagan PMS y channel manager (1) |
+| 13 | Food & Drug Retailing / Pharmaceuticals | **Droguerías independientes** | 2 | 1 | 2 | 0 | 1 | **6** | **insumo escaso** (4): director técnico 8 horas. Ya pagan software de droguería (1) |
+| 14 | Food & Tobacco | **Procesadores de alimentos** | 2 | 1 | 1 | 1 | 1 | **6** | **requisito para vender** (5): registro sanitario INVIMA y auditoría del cliente grande |
+
+### De dónde sale cada D
+
+**D=2 — hay padrón público y se puede extraer:** REPS para las IPS (#1); el
+registro de empresas habilitadas de MinTransporte y el RNDC (#2); el Catastro
+Minero de la ANM, que lista los títulos vigentes con su titular (#3); el
+registro de intermediarios de seguros de la SFC (#5); el listado de agencias de
+aduana autorizadas por la DIAN (#6); las vigiladas de Supervigilancia (#7); el
+directorio de establecimientos educativos de MinEducación (#8); las ESP
+inscritas en el SUI (#11); el RNT de Confecámaras (#12).
+
+**D=1 — hay gremio o directorio parcial, pero no padrón extraíble:** el
+cumplimiento SG-SST/LA-FT (#4) no tiene registro de "empresas obligadas" porque
+son casi todas, y el consultor que agrega el dolor no está en ningún padrón;
+propiedad horizontal (#9) no tiene registro nacional ni de conjuntos ni de
+administradoras; constructoras (#10) se aproximan por el RUP de las cámaras;
+droguerías (#13) están en registros territoriales fragmentados; procesadores de
+alimentos (#14) se derivan de los registros sanitarios INVIMA, que son por
+producto y no por empresa.
+
+**Ninguna fila quedó en D=0.** Esperable: el barrido ya venía filtrado por I —
+si hay intermediario nombrable, suele haber padrón. Los D=0 son los sectores que
+la Parte 1 descartó antes, y B2C en general.
+
+**Advertencia sobre los D=2 no verificados.** Que el registro exista y sea
+consultable no prueba que se pueda descargar en bloque. Están verificados como
+*existentes*, no como *extraíbles*. El primer trabajo de `/mercado` en cada
+industria es bajar el padrón; si no se puede, el eje baja a 1 y el Σ cae con él.
 
 ### Las filas que hay que leer con cuidado
 
-- **Propiedad horizontal (#5).** La Ley 675 no deja al administrador imponer
+- **Propiedad horizontal (#9).** La Ley 675 no deja al administrador imponer
   sanciones, así que no hay penalidad — pero es de los sectores con disposición a
   pagar más obvia: las administradoras ya le pagan a Jelpit y similares, y el
   portal es parte del servicio que le venden al conjunto. Su problema es **H=0**,
-  y eso se resuelve con `/oferta`, no descartándola de entrada.
-- **Corredores de seguros (#6), colegios privados (#9) y hoteles (#12)** entran
+  y ahora además **D=1**: no hay padrón de administradoras. Bajó del 5º al 9º
+  puesto justo por eso — sabés que el dolor está, y no tenés a quién escribirle.
+- **Corredores de seguros (#5), colegios privados (#8) y hoteles (#12)** entran
   por presupuesto vigente, no por sanción. Ninguno muere por plata.
 - **Constructoras (#10).** No es "ahorra horas": es la vía 5 — sin SG-SST al día
   no se licita.
+
+### Qué movió el eje D
+
+Agregar D reordenó el podio, y ese es el punto del eje: **mide justo lo que la
+matriz vieja ignoraba.**
+
+| Sector | Antes | Ahora | Por qué |
+| --- | :-: | :-: | --- |
+| **Pequeña minería titulada** | 4º (Σ 7) | **3º (Σ 9)** | el Catastro Minero lista los títulos con titular. Sector chico pero enteramente enumerable |
+| **Vigilancia privada** | 8º (Σ 6) | **7º (Σ 8)** | Supervigilancia publica las vigiladas; además la licencia es requisito para vender |
+| **Agenciamiento aduanero** | 7º (Σ 6) | **6º (Σ 8)** | la DIAN publica las agencias autorizadas — son cientos, no miles |
+| **Cumplimiento SG-SST / LA-FT** | 3º (Σ 7) | **4º (Σ 8)** | bajó: es transversal, o sea que "los obligados" son casi todos y no hay padrón que recortar |
+| **Propiedad horizontal** | 5º (Σ 6) | **9º (Σ 7)** | la caída más fuerte: H=0 y ahora D=1 |
+
+**Salud (#1) sigue primero y ahora con el puntaje perfecto**: es el único con
+los cinco ejes en 2. La lectura no cambia, se refuerza.
 
 **La pregunta de entrevista que se deriva de esto** no es *"¿te han multado?"*,
 que casi siempre da no, sino **"¿en qué línea del presupuesto sale esto hoy y
@@ -261,7 +324,7 @@ otro sector de la lista hace:
   presión que fuerza a profesionalizar el ciclo de ingresos (bueno). **Hay que
   resolver esta ambigüedad antes de invertir tiempo.**
 
-### Por qué el #3 no es un sector sino un producto transversal
+### Por qué el #4 no es un sector sino un producto transversal
 
 SG-SST y SAGRILAFT no pertenecen a una industria: son obligaciones que cruzan
 todas. Es el arquetipo C de `comparables-internacionales.md` — la jugada de
@@ -281,7 +344,7 @@ Contra: ya hay incumbentes (SafetYA, Pirani, ISOTools). H=1, no 2.
 
 ### La bandera roja que queda
 
-**#9 Colegios privados:** los 11.188 del DUE son un mercado que **se está
+**#8 Colegios privados:** los 11.188 del DUE son un mercado que **se está
 contrayendo — más de 700 cerraron en año y medio**. Disposición a pagar hay; lo
 que no está claro es que haya a quién cobrarle dentro de tres años. Un mercado
 que encoge castiga por churn y por precio a la vez. Entra con la contracción
@@ -340,11 +403,11 @@ porque nunca estuvieron en la lista**:
 | --- | --- | --- |
 | **Agro y pecuario** | La lista no tiene agricultura, punto. En Colombia mover un solo animal exige documento | ICA — **GSMI**, único documento legal para movilizar bovinos, equinos, porcinos, aves…, tramitada en **SIGMA**; requisitos unificados en Res. 8940 de 2024 |
 | **Cooperativas y fondos de empleados** | Sector enorme y con reportería propia que ningún ERP comercial cubre bien | Supersolidaria ⚠️ *no verificado en este barrido* |
-| **Agenciamiento aduanero** | Ya en la tabla (#7); la lista solo tiene "Freight & Logistics" | DIAN / VUCE / Dto. 1165 de 2019 |
-| **Vigilancia y seguridad privada** | Ya en la tabla (#8) | Supervigilancia |
+| **Agenciamiento aduanero** | Ya en la tabla (#6); la lista solo tiene "Freight & Logistics" | DIAN / VUCE / Dto. 1165 de 2019 |
+| **Vigilancia y seguridad privada** | Ya en la tabla (#7) | Supervigilancia |
 | **Empresas de servicios temporales** | Intermediario laboral puro: sufren nómina y SST por cientos de empleados en misión | MinTrabajo ⚠️ *no verificado* |
 | **ESAL, fundaciones y cajas de compensación** | Régimen tributario especial con reportería propia | DIAN / Supersalud ⚠️ *no verificado* |
-| **Propiedad horizontal** | Ya en la tabla (#5), con Σ = 6 | Ley 675 de 2001 |
+| **Propiedad horizontal** | Ya en la tabla (#9), con Σ = 7 | Ley 675 de 2001 |
 
 Las tres marcadas ⚠️ son las que hay que investigar antes de la próxima ronda de
 priorización. Son huecos de este barrido, no conclusiones.
@@ -358,14 +421,26 @@ priorización. Son huecos de este barrido, no conclusiones.
 ```bash
 scripts/nueva-industria.sh salud-ips        "Salud — IPS pequeñas y consultorios"
 scripts/nueva-industria.sh transporte-carga "Transporte de carga"
-scripts/nueva-industria.sh cumplimiento-sst "Cumplimiento laboral y LA/FT (transversal)"
+scripts/nueva-industria.sh mineria-pequena  "Pequeña minería titulada"
 ```
+
+**El podio cambió al agregar D.** Pequeña minería desplazó a cumplimiento
+SG-SST/LA-FT del tercer puesto: el Catastro Minero de la ANM lista los títulos
+vigentes con su titular, mientras que "empresas obligadas a SG-SST" son casi
+todas y no hay padrón que recortar. Cumplimiento sigue siendo Σ 8 y sigue en la
+cola — pero exige construir la lista de prospectos desde cero, y eso es
+precisamente el costo que D mide.
 
 **El orden importa.** Salud primero, y por una razón operativa además de la
 puntuación: es el único donde el costo se puede medir con **una sola pregunta en
 una llamada** —*¿qué % de tu facturación está glosado?*— sin que el entrevistado
 tenga que estimar horas. Una cifra que el entrevistado ya conoce vale más que una
 que hay que ayudarle a construir.
+
+**Y el primer trabajo de `/mercado` en cualquiera de las tres es bajar el
+padrón.** Si REPS, el RNDC o el Catastro Minero no se pueden extraer en bloque,
+el D de esa fila cae a 1 y el orden se vuelve a mover. Verificarlo cuesta una
+tarde y decide la estrategia de distribución entera.
 
 **Las tres preguntas** que van en toda entrevista de `/dolor`, sin importar la
 industria. La primera es la del test del auxiliar y va primero:
@@ -398,7 +473,7 @@ cumplimiento-sst   "estándares mínimos SG-SST"  "me visitó el Ministerio de T
    `/dolor`.
 2. **Si las IPS que cierran son el mercado o son la señal.** 332 cierres en un
    semestre puede ser demanda o puede ser un sector sin capacidad de pago.
-3. **Si SafetYA y Pirani ya cerraron el hueco de cumplimiento.** El #3 asume H=1
+3. **Si SafetYA y Pirani ya cerraron el hueco de cumplimiento.** El #4 asume H=1
    sin haber corrido `/oferta`. Puede ser H=0.
 
 ---

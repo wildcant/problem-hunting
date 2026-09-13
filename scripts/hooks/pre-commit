@@ -1,0 +1,36 @@
+#!/bin/bash
+# Bloquea el commit si una cita de evidencia no es trazable a un brief crudo.
+#
+# Activación (una sola vez, a mano — igual que scripts/instalar-comandos.sh):
+#   git config core.hooksPath scripts/hooks
+#
+# Por qué un hook y no un paso del playbook: la regla de verificar URLs ya
+# existía en prosa en CLAUDE.md y se incumplió igual, con una sola industria
+# abierta. Ver scripts/verificar-evidencia.sh.
+#
+# Para saltearlo en una emergencia:  git commit --no-verify
+
+REPO="$(git rev-parse --show-toplevel)"
+
+# Solo corre si hay archivos de investigación en el commit.
+if ! git diff --cached --name-only | grep -q '^research/'; then
+  exit 0
+fi
+
+echo "verificar-evidencia.sh"
+if ! "$REPO/scripts/verificar-evidencia.sh"; then
+  cat <<'MSG'
+
+commit abortado — hay citas que no se pueden verificar.
+
+Arreglalo de una de estas formas:
+  · sacá la cita que no existe, o
+  · regenerá el brief para que la contenga:
+      scripts/yt-comentarios.sh "<consulta>" N M --industria <slug>
+      scripts/l30d-brief.sh <slug> "<etiqueta>"
+
+Nunca reconstruyas una URL de memoria: sacala del brief con grep.
+MSG
+  exit 1
+fi
+exit 0
