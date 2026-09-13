@@ -1,6 +1,13 @@
-# Findings
+# Archivo — mercado de EE.UU. (congelado)
 
-One row per distinct problem. Evidence links go in the last column.
+**Investigación previa al pivote a Colombia. No se le agregan filas.**
+
+Las seis filas de abajo son del mercado estadounidense (property management y
+bookkeeping) y siguen siendo evidencia válida — se conservan como referencia de
+patrón, útiles para el paso 4 de `/dolor` (validación de patrón en inglés).
+
+La investigación vigente está en `research/industrias/`, un directorio por
+industria. Ver `research/INDICE.md`.
 
 | Vertical | Problem (one line) | Who has it (role) | Current workaround | Cost signal (hours / $ / churn) | Recurrence (# threads, date range) | Sources used | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- |
