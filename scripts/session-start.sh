@@ -36,6 +36,18 @@ pick_python() {
 
 L30_PYTHON="$(pick_python || true)"
 
+# Ruta del skill. Es un plugin, así que no vive en el repo. Sin esto,
+# "$SKILL_DIR/scripts/last30days.py" se expande a "/scripts/last30days.py" y
+# falla — que es exactamente lo que le pasaba al Paso 5 de /dolor.
+pick_skill_dir() {
+  for c in "$HOME"/.claude/plugins/marketplaces/*/skills/last30days \
+           "$HOME"/.claude/plugins/cache/*/last30days/*/skills/last30days; do
+    if [ -f "$c/scripts/last30days.py" ]; then echo "$c"; return 0; fi
+  done
+  return 1
+}
+L30_SKILL_DIR="$(pick_skill_dir || true)"
+
 # ---------------------------------------------------------------------------
 # Shared env for every later Bash command in this session.
 # ---------------------------------------------------------------------------
@@ -46,6 +58,7 @@ write_session_env() {
     echo "LAST30DAYS_MEMORY_DIR=$BRIEFS_DIR"
     echo "LAST30DAYS_STORE=1"
     [ -n "$L30_PYTHON" ] && echo "LAST30DAYS_PYTHON=$L30_PYTHON"
+    [ -n "$L30_SKILL_DIR" ] && echo "LAST30DAYS_SKILL_DIR=$L30_SKILL_DIR"
     for kv in "$@"; do echo "$kv"; done
   } >> "$CLAUDE_ENV_FILE"
 }

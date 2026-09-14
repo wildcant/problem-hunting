@@ -494,6 +494,22 @@ directo sobre los portales locales.
 
 **Siempre un run temático dirigido.** Nunca un topic pelado.
 
+```bash
+scripts/l30d-run.sh <industria> "<topic temático dirigido>"     # agregá --nube en la nube
+```
+
+El wrapper resuelve el path del skill, carga el entorno, aplica los flags
+obligatorios y encadena el post-procesado. **Usalo en vez del comando crudo.**
+
+> **El path del skill era el eslabón perdido.** El skill es un plugin
+> (`last30days@last30days-skill`) y vive en
+> `~/.claude/plugins/marketplaces/*/skills/last30days`. El playbook documentaba
+> `"$SKILL_DIR/scripts/last30days.py"` y **`$SKILL_DIR` no se definía en ningún
+> lado del repo**: el comando no se podía ejecutar. Si alguna vez lo corrés a
+> mano: `SKILL_DIR=$(ls -d ~/.claude/plugins/marketplaces/*/skills/last30days | head -1)`.
+
+Los flags que el wrapper aplica, y que no son negociables:
+
 ```
 --days 90  --deep  --emit=compact  --store  --save-dir="$LAST30DAYS_MEMORY_DIR"
 --search=youtube,web
@@ -524,6 +540,8 @@ pida explícitamente.
 ```bash
 scripts/l30d-brief.sh <industria> "<etiqueta del run>"
 ```
+
+`l30d-run.sh` ya lo encadena solo; esto es para cuando corrés el motor a mano.
 
 **No es opcional.** El motor deja su salida estructurada en
 `$LAST30DAYS_CONFIG_DIR/last-report.json`, que está en `.gitignore` y se llama
@@ -583,7 +601,7 @@ fallback documentado.
 
 ## Problemas conocidos del entorno
 
-Cuatro cosas que muerden y no son evidentes.
+Cinco cosas que muerden y no son evidentes.
 
 **1. El hook de SessionStart no corre en `/clear` ni `/compact`.** El matcher en
 `.claude/settings.json` es `"startup|resume"`. Después de un `/clear` no hay
@@ -612,6 +630,15 @@ tiene `setup_complete: true` en su propio estado. No corras el wizard.
 se commitea, así que el topic queue y la librería son locales a esta máquina y
 las sesiones en la nube arrancan en cero. Los briefs `.md` sí se commitean —
 esos son la evidencia durable.
+
+**5. `$SKILL_DIR` no existe.** El skill es un plugin
+(`last30days@last30days-skill`) instalado en
+`~/.claude/plugins/marketplaces/last30days-skill/skills/last30days`. Ni
+`session-start.sh` ni `.claude/last30days.env` exportan su ruta, así que
+cualquier comando copiado que use `"$SKILL_DIR/scripts/last30days.py"` se
+expande a `/scripts/last30days.py` y falla. **Usá `scripts/l30d-run.sh`**, que
+lo resuelve. Detectado el 2026-09-13: el Paso 5 de `/dolor` llevaba ese comando
+roto desde que se escribió el playbook, y nunca se había ejecutado.
 
 ---
 

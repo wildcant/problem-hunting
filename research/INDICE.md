@@ -12,6 +12,7 @@ número que alimenta la tabla índice del sitio.
 | Industria | Estado | Etapa | Problemas | Puntaje | Siguiente paso |
 | --- | --- | --- | :-: | :-: | --- |
 | [Contadores y firmas contables](industrias/contadores/) | 🔍 en investigación | 2 · dolor | **11** (10 cand. · 1 calif.) | — | `/mercado contadores`: cerrar el eje D y el ancla de precio |
+| [Salud — IPS pequeñas y consultorios](industrias/salud-ips/) | ⬜ sin empezar | — | — | — | correr `/mercado salud-ips` |
 <!-- fin-tabla -->
 
 ## Agregar una industria

@@ -30,8 +30,12 @@ repo   = os.environ["REPO"]
 filtro = os.environ["FILTRO"]
 base   = os.path.join(repo, "research", "industrias")
 
-ID_DEF = re.compile(r"^###\s+((?:YT|L3D)-[A-Za-z0-9_]+-[A-Za-z0-9]+)")
-ID_USE = re.compile(r"\b((?:YT|L3D)-[A-Za-z0-9_]+-[A-Za-z0-9]{4,6})\b")
+# Prefijos por lane: YT = comentarios de YouTube, L3D = motor last30days,
+# JOB = ofertas de empleo, WEB = WebSearch/WebFetch, FB = grupos de Facebook,
+# ENT = entrevista. Un lane sin prefijo no se puede citar ni verificar.
+LANES  = "YT|L3D|JOB|WEB|FB|ENT"
+ID_DEF = re.compile(rf"^###\s+((?:{LANES})-[A-Za-z0-9_]+-[A-Za-z0-9]+)")
+ID_USE = re.compile(rf"\b((?:{LANES})-[A-Za-z0-9_]+-[A-Za-z0-9]{{4,6}})\b")
 URL    = re.compile(r"https?://[^\s)\]<>\"']+")
 
 # Plataformas que minamos con un lane propio: si una URL de estas aparece en

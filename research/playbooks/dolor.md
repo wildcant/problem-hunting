@@ -105,25 +105,49 @@ ser la mejor fuente que vas a tener sobre el workaround actual.
 
 ## Paso 5 — el run del motor
 
-```bash
-"${LAST30DAYS_PYTHON:-python3}" "$SKILL_DIR/scripts/last30days.py" "<consulta>" \
-  --plan "$PLAN_FILE" \
-  --search=youtube,web \
-  --days 90 --deep --emit=compact --store \
-  --save-dir="$LAST30DAYS_MEMORY_DIR"
-```
-
-En la nube, agregá `--web-backend=parallel-mcp`.
-
-Apenas termine, **convertilo en evidencia citable** — el JSON del motor se
-sobrescribe en la corrida siguiente:
+**Es el motor del repo, no una lane opcional.** `CLAUDE.md` arranca diciendo
+"Motor: la skill `last30days`"; YouTube y Facebook son lanes propias que lo
+complementan.
 
 ```bash
-scripts/l30d-brief.sh <slug> "<etiqueta del run>"
+scripts/l30d-run.sh <slug> "<topic temático dirigido>"
 ```
 
-Si la salida dice `CORRIDA DEGRADADA`, algún lane vino limitado o falló: esa
+Eso es todo. El wrapper resuelve el path del skill, carga el entorno si el hook
+de sesión no lo dejó puesto, aplica los flags obligatorios (`--days 90 --deep
+--emit=compact --store --save-dir --search=youtube,web`) y **encadena solo** el
+post-procesado que convierte la corrida en evidencia citable. En la nube,
+agregale `--nube`.
+
+> **Por qué existe el wrapper.** Hasta 2026-09-13 este paso documentaba un
+> comando con `"$SKILL_DIR/scripts/last30days.py"`, y **`$SKILL_DIR` no se
+> definía en ningún archivo del repo** — ni en `session-start.sh`, ni en
+> `.claude/last30days.env`, ni en `CLAUDE.md`. El comando no se podía ejecutar
+> como estaba escrito. El skill es un plugin y vive en
+> `~/.claude/plugins/marketplaces/*/skills/last30days`.
+
+El wrapper además frena tres errores medidos:
+
+- **Topic pelado.** Avisa si el topic tiene menos de tres palabras. `"SAP
+  Business One en Colombia"` devolvió *"GTA VI si hubiera sido grabado en
+  Bogotá"*; las marcas sueltas devolvieron una reseña de una película de Tyler
+  Perry. Un nombre de marca solo vale con `vs`, o minando reseñas de 2–3
+  estrellas.
+- **`--discover`.** Lo rechaza. Rankea r/all y la portada de HN, donde una queja
+  B2B nicho jamás llega.
+- **Entorno sin cargar.** El hook de `SessionStart` tiene matcher
+  `startup|resume`: después de un `/clear` o `/compact` no hay ninguna variable,
+  `--save-dir` se expande a vacío y el sandbox niega la escritura al default.
+
+Si la salida dice `⚠ CORRIDA DEGRADADA`, algún lane vino limitado o falló: esa
 corrida **no puede marcar una consulta como ❌**, solo `⚠️ probado, degradado`.
+
+Para correr el motor a mano —o para entender qué hace el wrapper— el path se
+resuelve así:
+
+```bash
+SKILL_DIR=$(ls -d ~/.claude/plugins/marketplaces/*/skills/last30days | head -1)
+```
 
 Sin `--discover`. Sin `--drill`. Sin topics de marca sueltos.
 

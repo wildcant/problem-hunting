@@ -310,7 +310,8 @@ otro sector de la lista hace:
 - **Masa real:** 10.839 IPS habilitadas a jun-2025, **91% privadas**. Más los
   profesionales independientes, que también son prestadores.
 - **La vía de pago es la 2, no la 3, y por eso es más fuerte.** Con la Res.
-  2275/2023 el RIPS dejó de ser un `.txt` aparte: es **soporte obligatorio de la
+  2275/2023 —hoy **derogada y sustituida por la Res. 948 de 2026**, que mantiene el
+  esquema— el RIPS dejó de ser un `.txt` aparte: es **soporte obligatorio de la
   factura electrónica en JSON**, y una inconsistencia entre RIPS y factura hace
   que **la EPS glose automáticamente**. Si MinSalud rechaza el RIPS, la IPS **no
   puede radicar** hasta corregir. No es una multa que puede o no llegar: es caja
@@ -481,6 +482,7 @@ cumplimiento-sst   "estándares mínimos SG-SST"  "me visitó el Ministerio de T
 ## Fuentes
 
 **Salud**
+- ⚠️ **La Res. 2275 de 2023 está derogada** por la [Res. 948 de 2026](https://www.cerlatam.com/normatividad/minsalud-resolucion-948-de-202614-may-2026/) (14-may-2026). El esquema RIPS↔CUV se mantiene. La 2284 sigue vigente, modificada por la Res. 1885/2024.
 - [Res. 2275 de 2023 — MinSalud (PDF)](https://www.minsalud.gov.co/Normatividad_Nuevo/Resoluci%C3%B3n%20No%202275%20de%202023.pdf) · [Salud Total — RIPS como soporte de la FEV](https://saludtotal.com.co/plan-de-beneficios-en-salud/normas-de-interes-facturacion-electronica-y-rips-resolucion-2275-y-2284-de-2023/) · [Medifolios — glosa automática por inconsistencia RIPS↔factura](https://medifolios.net/articulos/resolucion-2275.php)
 - [ConsultorSalud — 332 IPS cerradas en el primer semestre de 2025](https://consultorsalud.com/unips-primer-semestre-de-2025-cerraron-332-ips/) · [REPS — SISPRO](https://www.sispro.gov.co/central-prestadores-de-servicios/Pages/REPS-Registro-especial-de-prestadores-de-servicios-de-salud.aspx)
 - HCE: [Ley 2015 de 2020](http://www.secretariasenado.gov.co/senado/basedoc/ley_2015_2020.html)

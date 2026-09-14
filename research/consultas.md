@@ -56,6 +56,7 @@ Evidencia, no intuición. Cada fila costó una corrida.
 | `r/Colombia` para dolor B2B | Activo, pero es un sub general y político. Los términos B2B caen en hilos de política. | 2026-09-12 |
 | Cualquier marca sola como topic | Trajo una reacción a película de Tyler Perry (`Alegra`), "Algebra 1 Regents Review" (`Alegra`), política colombiana (`World Office`) y "GTA VI si hubiera sido grabado en Bogotá" (`SAP Business One en Colombia`). | 2026-09-12 |
 | `--discover` como primer pase | "Nothing solid this window" en todas las verticales probadas. Rankea r/all y la portada de HN. | 2026-09-12 |
+| YouTube para mecanismos de **coordinación** (2–5) | `como responder glosas EPS auditoria de cuentas medicas` devolvió **1 ítem**. Las mismas corridas sobre el trámite (`RIPS en JSON`, `RIPS rechazado`) dieron **69 y 50**. Confirma lo que `CLAUDE.md` afirmaba sin medir: nadie sube un tutorial de "cómo conciliar con la EPS". Para los mecanismos 2–5 la lane es el motor, ofertas de empleo y Facebook. | 2026-09-13, `scripts/yt-comentarios.sh` |
 | `--hiring-signals` para Colombia | Solo lee ATS gringos (Greenhouse, Ashby, Lever, Workable, SmartRecruiters). Cae al tier 3 de búsqueda web ruidosa. | 2026-09-12, jobs.py |
 
 ---
@@ -64,4 +65,4 @@ Evidencia, no intuición. Cada fila costó una corrida.
 
 | Lane | Resultado | Medido |
 | --- | --- | --- |
-| Comentarios de YouTube bajo tutoriales de trámite | 48 comentarios con marcador de dolor de 4 videos; tutoriales con 116k/100k/100k vistas | 2026-09-12, `scripts/yt-comentarios.sh` |
+| Comentarios de YouTube bajo tutoriales de **trámite** (mecanismo 1) | Contadores: 56 ítems de 5 videos → 11 problemas catalogados. Salud: 69 y 50 ítems. Tutoriales con 116k/100k/100k vistas. **Solo sirve para el mecanismo 1** — ver el descarte de arriba. | 2026-09-13, `scripts/yt-comentarios.sh` |
